@@ -48,7 +48,6 @@ CreateThread(function()
 		end
 	end
     LoadAnimDict('anim@mugging@victim@toss_ped@')
-    LoadAnimDict('mp_common')
 end)
 
 exports("IsPlayerStealing", function()
