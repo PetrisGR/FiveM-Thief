@@ -120,7 +120,6 @@ AddEventHandler('Thief:Client:SetRobberyMenu', function(targetPedNetId, targetIn
                     if not input then 
                         lib.registerContext({
                             id = 'thief_'..serverId..'',
-                            menu = 'thief',
                             title = Config.Menu["Title"],
                             options = TargetStealableItems,
                             onExit = function()
@@ -143,7 +142,6 @@ AddEventHandler('Thief:Client:SetRobberyMenu', function(targetPedNetId, targetIn
     
     lib.registerContext({
         id = 'thief_'..serverId..'',
-        menu = 'thief',
         title = Config.Menu["Title"],
         options = TargetStealableItems,
         onExit = function()
