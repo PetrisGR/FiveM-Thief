@@ -2,6 +2,9 @@
 
 It is a highly optimized, anti-exploitable, and advanced script that you can have in your roleplay server.
 
+![presentation-image](https://github.com/PetrisGR/FiveM-Thief/assets/121623120/6eedcb68-7e2c-4404-9b3d-13796eec2bd5)
+
+
 **Depedency:** [Ox Library's Context Menu](https://forum.cfx.re/t/free-ox-library-ui-and-common-code/4853434)
 
 ---
