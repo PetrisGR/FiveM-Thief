@@ -221,17 +221,20 @@ Citizen.CreateThread(function()
 end)
 
 Citizen.CreateThread(function()
-    while PlayerState["IsStealing"] do
+    while true do
         Citizen.Wait(500)
+        if PlayerState["IsStealing"] then
 
-        local myCoords = GetEntityCoords(PlayerPedId())
-        local targetPed = NetwworkGetEntityFromNetworkId(TargetPed)
+            local myCoords = GetEntityCoords(PlayerPedId())
 
-        if not DoesEntityExist(targetPed) then TriggerServerEvent('Thief:Server:RobberyCancelled') lib.hideContext(false) lib.closeInputDialog() end
+            if not DoesEntityExist(TargetPed) then TriggerServerEvent('Thief:Server:RobberyCancelled') lib.hideContext(false) lib.closeInputDialog() end
 
-        local targetCoords = GetEntityCoords(targetPed)
+            local targetCoords = GetEntityCoords(TargetPed)
 
-        if (#(myCoords - targetCoords) > Config.Settings["MaxDistance"]) then TriggerServerEvent('Thief:Server:RobberyCancelled') lib.hideContext(false) lib.closeInputDialog() end
+            if (#(myCoords - targetCoords) > Config.Settings["MaxDistance"]) then TriggerServerEvent('Thief:Server:RobberyCancelled') lib.hideContext(false) lib.closeInputDialog() end
+        else
+            Citizen.Wait(1500)
+        end
     end
 end)
 
