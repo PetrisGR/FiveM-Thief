@@ -10,16 +10,24 @@ Config = {
     },
 
     Settings = {
+        ["Cooldown"] = {
+            ["Enabled"] = false,
+            ["Duration"] = 1, -- Minute(s)
+        }, 
         ["MaxDistance"] = 2.0,
     },
 
     Blacklisted = {
         ["Areas"] = {
-            {coords = vector3(0.0, 0.0, 0.0), range = 5.0},
+           -- {coords = vector3(0.0, 0.0, 0.0), range = 5.0},
         },
-        ["Items"] = {"bank", "id_card", "WEAPON_RPG"}
+        ["Items"] = {
+            "bank", 
+            "id_card", 
+            "WEAPON_STUNGUN",
+        }
     },
-
+    
     Menu = {
         ["Title"] = "Target's Inventory",
         ["DialogTitle"] = "Choose Amount",
@@ -61,6 +69,7 @@ Config = {
     },
 
     Messages = {
+        ["cooldown"] = "You can\'t rob right now. Try again later!",
         ["something_went_wrong"] = "Something went wrong.",
         ["you_stole"] = "You stole",
         ["thief_stole"] = "Thief stole",

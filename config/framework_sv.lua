@@ -96,6 +96,12 @@ Framework = {
             xPlayer.showNotification(message)
         end,
 
+        GetIdentifier = function(playerId)
+            -- ESX Example
+            local xPlayer = Framework.Object.GetPlayerFromId(playerId)
+            return xPlayer.identifier
+        end,
+
         BanPlayer = function(playerId)
             -- Player attempted to steal player while his ped was not robbing him. (Cheating / Triggering Events) 
             DropPlayer(playerId, 'Stop Cheating!')
