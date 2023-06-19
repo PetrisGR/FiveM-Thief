@@ -1,6 +1,7 @@
 local OnlinePlayers = {}
 local StealablePlayers = {}
 local ActiveRobberies = {}
+local Cooldowns = {}
 
 local function GetClosestTarget(playerId)
 	local result = {}
@@ -37,8 +38,8 @@ function IsItemBlacklisted(item)
     for _, blacklistedItem in pairs(Config.Blacklisted["Items"]) do
         if item == blacklistedItem then
             isBlacklisted = true
-            break
         end
+        break
     end
 
     return isBlacklisted
@@ -89,6 +90,9 @@ RegisterServerEvent('Thief:Server:ThiefRequest')
 AddEventHandler('Thief:Server:ThiefRequest', function()
     local playerId = source
     local ped = GetPlayerPed(playerId)
+
+    if Cooldowns[Framework.Functions.GetIdentifier(playerId)] then Framework.Functions.ShowNotification(playerId, Config.Messages["cooldown"]) return end
+
     local closestTarget = GetClosestTarget(playerId)
     
     if not DoesEntityExist(ped) then return end
@@ -109,6 +113,10 @@ AddEventHandler('Thief:Server:ThiefRequest', function()
 
     ActiveRobberies[playerId] = closestTarget.id
     
+    if Config.Settings["Cooldown"]["Enabled"] then
+        Cooldowns[Framework.Functions.GetIdentifier(playerId)] = Config.Settings["Cooldown"]["Duration"]
+    end
+
     TriggerClientEvent('Thief:Client:ChangeRobbedState', ActiveRobberies[playerId], true, NetworkGetNetworkIdFromEntity(GetPlayerPed(playerId)))
     TriggerClientEvent('Thief:Client:SetRobberyMenu', playerId, closestTarget.ped, Framework.Functions.GetTargetItems(ActiveRobberies[playerId]))
 end)
@@ -148,3 +156,17 @@ AddEventHandler('playerDropped', function(reason)
     local playerId = source
     OnlinePlayers[playerId] = nil
 end)
+
+if Config.Settings["Cooldown"]["Enabled"] then
+    CreateThread(function()
+        while true do
+            Citizen.Wait(60000)
+            for k,v in pairs(Cooldowns) do
+                Cooldowns[k] = v - 1
+                if Cooldowns[k] < 1 then
+                    Cooldowns[k] = nil
+                end
+            end
+        end
+    end)
+end
