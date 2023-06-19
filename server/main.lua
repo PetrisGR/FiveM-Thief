@@ -4,8 +4,8 @@ local ActiveRobberies = {}
 
 local function GetClosestTarget(playerId)
 	local result = {}
-    local playerCoords = GetEntityCoords(GetPlayerPed(playerId))
-    local playerBucket = GetPlayerRoutingBucket(playerId)
+    	local playerCoords = GetEntityCoords(GetPlayerPed(playerId))
+    	local playerBucket = GetPlayerRoutingBucket(playerId)
 
 	for id, isOnline in pairs(OnlinePlayers) do
 		if (Framework.Functions.CanPlayerBeStolen(id) and StealablePlayers[id] and isOnline and id ~= playerId) then
@@ -36,9 +36,9 @@ function IsItemBlacklisted(item)
 
     for _, blacklistedItem in pairs(Config.Blacklisted["Items"]) do
         if item == blacklistedItem then
-            isBlacklisted = true
+            	isBlacklisted = true
+		break
         end
-        break
     end
 
     return isBlacklisted
