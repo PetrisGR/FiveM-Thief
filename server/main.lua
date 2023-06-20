@@ -93,6 +93,17 @@ AddEventHandler('Thief:Server:ThiefRequest', function()
 
     if Cooldowns[Framework.Functions.GetIdentifier(playerId)] then Framework.Functions.ShowNotification(playerId, Config.Messages["cooldown"]) return end
 
+    local isAreaBlacklisted = false
+
+	for k,v in pairs(Config.Blacklisted["Areas"]) do
+		if #(GetEntityCoords(GetPlayerPed(playerId)) - v.coords) < v.range then
+			isAreaBlacklisted = true
+			break
+		end
+	end
+
+	if isAreaBlacklisted then return end
+
     local closestTarget = GetClosestTarget(playerId)
     
     if not DoesEntityExist(ped) then return end
