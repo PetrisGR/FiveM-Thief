@@ -38,8 +38,8 @@ function IsItemBlacklisted(item)
     for _, blacklistedItem in pairs(Config.Blacklisted["Items"]) do
         if item == blacklistedItem then
             isBlacklisted = true
-			break
-		end
+            break
+        end
     end
 
     return isBlacklisted
