@@ -19,7 +19,7 @@ The "FiveM-Thief" repository, is a script designed for the multiplayer modificat
 ## Installation
 
 1. Make sure you have installed the resource's dependency [OX Library](https://github.com/overextended/ox_lib).
-1. [Download the latest version.](https://github.com/PetrisGR/FiveM-Thief/releases)
+1. [Download] the script's latest version. (https://github.com/PetrisGR/FiveM-Thief/releases)
 2. Place the script files in your FiveM resource directory.
 3. Add `start petris-thief` to your `server.cfg` file.
 
