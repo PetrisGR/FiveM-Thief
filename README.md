@@ -1,8 +1,4 @@
-# 👤 Thief Script for [FiveM](https://fivem.net/)
-
-![Page Views](https://img.shields.io/badge/dynamic/json?color=brightgreen&label=Page%20Views&query=value&url=https://api.countapi.xyz/hit/PetrisGR.FiveM-Thief/README.md)
-[![GitHub stars](https://img.shields.io/github/stars/PetrisGR/FiveM-Thief.svg)](https://github.com/PetrisGR/FiveM-Thief/stargazers)
-[![GitHub license](https://img.shields.io/github/license/PetrisGR/FiveM-Thief.svg)](https://github.com/PetrisGR/FiveM-Thief/blob/master/LICENSE)
+# 👤 Thief Script for [FiveM](https://fivem.net/) [![GitHub stars](https://img.shields.io/github/stars/PetrisGR/FiveM-Thief.svg)](https://github.com/PetrisGR/FiveM-Thief/stargazers) [![GitHub license](https://img.shields.io/github/license/PetrisGR/FiveM-Thief.svg)](https://github.com/PetrisGR/FiveM-Thief/blob/master/LICENSE)
 
 ---
 
