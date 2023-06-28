@@ -30,19 +30,19 @@ Framework = {
             local items = {}
 
             for k,v in pairs(xPlayer.getAccounts()) do
-                if not IsItemBlacklisted(v.name) and v.money >= 1 then
+                if not IsItemBlacklisted(v.name, "Money") and v.money >= 1 then
                     items[#items + 1] = {type = "money", item = v.name, label = v.label, amount = v.money}
                 end
             end
 
             for k,v in ipairs(xPlayer.getLoadout()) do
-                if not IsItemBlacklisted(v.name) then
+                if not IsItemBlacklisted(v.name, "Weapons") then
                     items[#items + 1] = {type = "weapon", item = v.name, label = v.label, amount = v.ammo, data = v.components}
                 end
             end
 
             for k,v in pairs(xPlayer.getInventory()) do
-                if not IsItemBlacklisted(v.name) and v.count >= 1 then
+                if not IsItemBlacklisted(v.name, "Items") and v.count >= 1 then
                     items[#items + 1] = {type = "item", item = v.name, label = v.label, amount = v.count, data = v.weight}
                 end
             end
