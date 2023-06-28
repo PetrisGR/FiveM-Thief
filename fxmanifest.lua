@@ -1,7 +1,7 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'Petris <petrisservices.tebex.io>'
+author 'Petris <github.com/PetrisGR>'
 description 'Advanced Thief Script'
 version '1.0.3'
 
