@@ -3,7 +3,7 @@ game 'gta5'
 
 author 'Petris <github.com/PetrisGR>'
 description 'Advanced Thief Script'
-version '1.0.3'
+version '1.0.4'
 
 lua54 'yes'
 
