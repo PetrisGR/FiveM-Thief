@@ -32,11 +32,11 @@ local function GetClosestTarget(playerId)
 	return result
 end
 
-function IsItemBlacklisted(item)
+function IsItemBlacklisted(itemName, itemType)
     local isBlacklisted = false
 
-    for _, blacklistedItem in pairs(Config.Blacklisted["Items"]) do
-        if item == blacklistedItem then
+    for _, blacklistedItem in pairs(Config.Blacklisted["Inventory"][itemType]) do
+        if itemName == blacklistedItem then
             isBlacklisted = true
             break
         end
@@ -70,11 +70,13 @@ AddEventHandler('Thief:Server:StealItem', function(itemType, itemName, itemAmoun
         Wait(4000)
         TriggerClientEvent('Thief:Client:SetHandsUp', ActiveRobberies[playerId])
         if Config.Notifications["Steal"] then
-            if itemType ~= "weapon" then
-                TriggerClientEvent('Thief:Client:SetHandsUp', ActiveRobberies[playerId])
+            if itemType == "item" then
                 Framework.Functions.ShowNotification(playerId, Config["Messages"]["you_stole"].. " "..itemAmount.."x "..itemName.."")
-                Framework.Functions.ShowNotification(ActiveRobberies[playerId], Config["Messages"]["thief_stole"].. " "..itemAmount.."x "..itemName.." " ..Config["Messages"]["from_you"])
-            else
+                Framework.Functions.ShowNotification(ActiveRobberies[playerId], Config["Messages"]["thief_stole"].. " "..itemAmount.."x "..itemName.." " ..Config["Messages"]["from_you"]) 
+            elseif itemType == "money" then
+                Framework.Functions.ShowNotification(playerId, Config["Messages"]["you_stole"].. " "..itemAmount..""..Config.Locale["Currency"].." "..itemName.."")
+                Framework.Functions.ShowNotification(ActiveRobberies[playerId], Config["Messages"]["thief_stole"].. " "..itemAmount..""..Config.Locale["Currency"].." "..itemName.." " ..Config["Messages"]["from_you"])
+            elseif itemType == "weapon" then
                 Framework.Functions.ShowNotification(playerId, Config["Messages"]["you_stole"].. " "..itemName.."")
                 Framework.Functions.ShowNotification(ActiveRobberies[playerId], Config["Messages"]["thief_stole"].. " "..itemName.." " ..Config["Messages"]["from_you"]) 
             end
@@ -166,6 +168,10 @@ end)
 AddEventHandler('playerDropped', function(reason)
     local playerId = source
     OnlinePlayers[playerId] = nil
+    if ActiveRobberies[playerId] then
+        TriggerClientEvent('Thief:Client:ChangeRobbedState', ActiveRobberies[playerId], false)
+        ActiveRobberies[playerId] = nil
+    end
 end)
 
 if Config.Settings["Cooldown"]["Enabled"] then
