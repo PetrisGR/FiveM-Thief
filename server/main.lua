@@ -74,8 +74,8 @@ AddEventHandler('Thief:Server:StealItem', function(itemType, itemName, itemAmoun
                 Framework.Functions.ShowNotification(playerId, Config["Messages"]["you_stole"].. " "..itemAmount.."x "..itemName.."")
                 Framework.Functions.ShowNotification(ActiveRobberies[playerId], Config["Messages"]["thief_stole"].. " "..itemAmount.."x "..itemName.." " ..Config["Messages"]["from_you"]) 
             elseif itemType == "money" then
-                Framework.Functions.ShowNotification(playerId, Config["Messages"]["you_stole"].. " "..itemAmount..""..Config.Locale["Currency"].." "..itemName.."")
-                Framework.Functions.ShowNotification(ActiveRobberies[playerId], Config["Messages"]["thief_stole"].. " "..itemAmount..""..Config.Locale["Currency"].." "..itemName.." " ..Config["Messages"]["from_you"])
+                Framework.Functions.ShowNotification(playerId, Config["Messages"]["you_stole"].. " "..itemAmount..""..Config.Menu["Currency"].." "..itemName.."")
+                Framework.Functions.ShowNotification(ActiveRobberies[playerId], Config["Messages"]["thief_stole"].. " "..itemAmount..""..Config.Menu["Currency"].." "..itemName.." " ..Config["Messages"]["from_you"])
             elseif itemType == "weapon" then
                 Framework.Functions.ShowNotification(playerId, Config["Messages"]["you_stole"].. " "..itemName.."")
                 Framework.Functions.ShowNotification(ActiveRobberies[playerId], Config["Messages"]["thief_stole"].. " "..itemName.." " ..Config["Messages"]["from_you"]) 
