@@ -21,11 +21,17 @@ Config = {
         ["Areas"] = {
            -- {coords = vector3(0.0, 0.0, 0.0), range = 5.0},
         },
-        ["Items"] = {
-            "bank", 
-            "id_card", 
-            "WEAPON_STUNGUN",
-        }
+        ["Inventory"] = {
+            ["Items"] = {
+                "id_card", 
+            },
+            ["Money"] = {
+                "bank",
+            },
+            ["Weapons"] = {
+                "WEAPON_STUNGUN",
+            }
+        },
     },
     
     Menu = {
