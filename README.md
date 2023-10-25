@@ -18,13 +18,14 @@ The "FiveM-Thief" repository, is a script designed for the multiplayer modificat
 
 ## Usage
 
-1. Download the latest version from here: https://github.com/PetrisGR/FiveM-Thief/releases.
-2. Drag & Drop the zip file into your `resources` folder.
-3. Un-zip the folder of the script.
-4. Start the script via your server.cfg by typing `ensure petris-thief` in a new code line.  
-5. Launch your FiveM server.
-6. Join the server and experience the thief gameplay mechanics.
-7. Enjoy stealing items from other players with captivating animations.
+1. Make sure you have the latest [OX Library](https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip) installed in your server resources.
+2. Download the [latest version](https://github.com/PetrisGR/FiveM-Thief/releases/latest/download/petris-thief.zip).
+3. Drag & Drop the zip file into your `resources` folder.
+4. Un-zip the folder of the script.
+5. Start the script via your server.cfg by typing `ensure petris-thief` in a new code line.  
+6. Launch your FiveM server.
+7. Join the server and experience the thief gameplay mechanics.
+8. Enjoy stealing items from other players with captivating animations.
 
 ## Contributing
 
