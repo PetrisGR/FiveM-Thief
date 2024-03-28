@@ -138,11 +138,8 @@ Framework = {
                 if itemType == "item" or itemType == "weapon" then
                     local targetItem = exports.ox_inventory:GetItemCount(targetId, itemName) >= itemAmount
 
-                    print(targetItem)
-
                     if targetItem then
                         if exports.ox_inventory:CanCarryItem(thiefId, itemName, itemAmount, itemData) then
-                            print('passed')
                             exports.ox_inventory:RemoveItem(targetId, itemName, itemAmount)
                             exports.ox_inventory:AddItem(thiefId, itemName, itemAmount, itemData)
 
@@ -152,9 +149,7 @@ Framework = {
                 elseif itemType == "money" then
                     local targetAccount = exports.ox_inventory:GetItemCount(targetId, itemName) >= itemAmount
 
-                    print(targetAccount)
                     if targetAccount then
-                        print('passed')
                         exports.ox_inventory:RemoveItem(targetId, itemName, itemAmount)
                         exports.ox_inventory:AddItem(thiefId, itemName, itemAmount)
                         
