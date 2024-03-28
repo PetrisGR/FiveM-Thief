@@ -91,14 +91,10 @@ AddEventHandler('Thief:Client:SetRobberyMenu', function(targetPedNetId, targetIn
     local TargetStealableItems = {} 
 
     for k,v in pairs(targetInventory) do
-        local itemIcon = Config.Menu.Icons[v.type]["default"]
-        if Config.Menu.Icons[v.type].Specific then
-            if Config.Menu.Icons[v.type].Specific[v.item] then
-                itemIcon = Config.Menu.Icons[v.type].Specific[v.item]
-            end
-        end
         local itemLabel = v.label
+
         if not itemLabel then itemLabel = v.item end
+        
         local itemTitle = v.amount.. "x " ..itemLabel
         local hasAmountSelection = true
 
@@ -107,8 +103,7 @@ AddEventHandler('Thief:Client:SetRobberyMenu', function(targetPedNetId, targetIn
 
         TargetStealableItems[#TargetStealableItems + 1] = {
             title = itemTitle,
-            icon = itemIcon.icon,
-            iconColor = itemIcon.iconColor,
+            icon = Config.Menu["IconsPath"].."/"..v.item..".png",
             arrow = hasAmountSelection,
             onSelect = function()
                 if v.type == "item" or v.type == "money" then

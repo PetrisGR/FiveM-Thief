@@ -41,25 +41,7 @@ Config = {
         ["InputAmountTitle"] = "Amount",
         ["InputAmountDescription"] = "Choose amount to steal.",
         ["Currency"] = "$",
-        Icons = { -- Find some here: https://fontawesome.com/search?o=r&m=free
-            ["money"] = {
-                ["default"] = {icon = "dollar-sign", iconColor = "#289931"},
-                Specific = {
-                    ["money"] = {icon = "wallet", iconColor = "#289931"},
-                    ["black_money"] = {icon = "sack-dollar", iconColor = "#e30707"},
-                },
-            },
-            ["weapon"] = {
-                ["default"] = {icon = "gun", iconColor = "#cf2b1f"}
-            },
-            ["item"] = {
-                ["default"] = {icon = "box", iconColor = "#d5e30b"},
-                Specific = {
-                    ["water"] = {icon = "bottle-water", iconColor = "#1599e6"},
-                    ["bread"] = {icon = "bread-slice", iconColor = "#b0580b"},
-                },
-            }
-        }
+        ["IconsPath"] = "nui://ox_inventory/web/images"
     },
     
     Animation = {

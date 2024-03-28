@@ -5,27 +5,27 @@ local Cooldowns = {}
 
 local function GetClosestTarget(playerId)
 	local result = {}
-	local playerCoords = GetEntityCoords(GetPlayerPed(playerId))
-	local playerBucket = GetPlayerRoutingBucket(playerId)
+    local playerCoords = GetEntityCoords(GetPlayerPed(playerId))
+    local playerBucket = GetPlayerRoutingBucket(playerId)
 
 	for id, isOnline in pairs(OnlinePlayers) do
 		if (Framework.Functions.CanPlayerBeStolen(id) and StealablePlayers[id] and isOnline and id ~= playerId) then
 			local entity = GetPlayerPed(id)
 			local coords = GetEntityCoords(entity)
-	        local dist = #(playerCoords - coords)
-	        local busy = false
-	
-			for k,v in pairs(ActiveRobberies) do
-				if v == id then
-					busy = true 
-				end
-			end
+            local dist = #(playerCoords - coords)
+            local busy = false
 
-			if not busy then
-				if dist <= (result.dist or Config.Settings["MaxDistance"]) and (GetPlayerRoutingBucket(id) == playerBucket) then
-					result = {id = id, ped = NetworkGetNetworkIdFromEntity(entity), coords = coords, dist = dist}
-				end
-			end
+            for k,v in pairs(ActiveRobberies) do
+                if v == id then
+                    busy = true 
+                end
+            end
+
+            if not busy then
+                if dist <= (result.dist or Config.Settings["MaxDistance"]) and (GetPlayerRoutingBucket(id) == playerBucket) then
+                    result = {id = id, ped = NetworkGetNetworkIdFromEntity(entity), coords = coords, dist = dist}
+                end
+            end
 		end
 	end
 
